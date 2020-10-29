@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+<meta charset="ISO-8859-1"></meta>
+
+<title>Evento</title>
+
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
+<link
+	href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css"
+	rel="stylesheet" id="bootstrap-css">
+</link>
+
+<script
+	src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js">
+		</script>
+
+<script type="text/javascript" th:src="@{/js/event.js}"></script>
+
+</head>
+
+<body>
+
+	<div th:replace="fragments/header :: header"></div>
+
+	<div class="container">
+		<form th:action="@{/event/register}" method="post"
+			th:object="${event}">
+			<div class="form-group">
+
+				<label for="idevent">ID:</label> <input type="text"
+					class="form-control" th:field="*{idEvent}"></input>
+
+				<div class="form-group">
+					
+					<label for="evento" class=" col-sm-2 col-form-label">Organizador:
+					</label> <select class="form-control" th:field="*{user.idUser}">
+						<!-- th:each Itera los elementos de un arreglo -->
+						<!-- sintaxis th:each="Variable: ${Lista}" -->
+						<!-- th:value Establece el value de la seleccion -->
+						<!-- sintaxis th:value="${Variable.Atributo}" -->
+						<option th:each="u: ${listaUsuarios}" th:value="${u.idUser}"
+							th:text="${u.nameUser} + ' ' + ${u.lastnameUser}"
+							th:selected="(${u.idUser} == *{user.idUser})"></option>
+							
+					</select> 
+					
+					<label for="nombre">NOMBRE:</label> <input type="text"
+						th:field="*{nameEvent}" class="form-control" id="nombre"></input>
+
+					<div class="alert alert-danger"
+						th:if="${#fields.hasErrors('nameEvent')}" th:errors="*{nameEvent}">
+					</div>
+
+					<label for="fecha">FECHA:</label> <input type="date"
+						th:field="*{dateEvent}" class="form-control" id="fecha"></input>
+
+					<div class="alert alert-danger"
+						th:if="${#fields.hasErrors('dateEvent')}" th:errors="*{dateEvent}">
+					</div>
+
+					<label for="nombre">CANTIDAD DE ENTRADAS:</label> <input
+						type="text" th:field="*{numberTickets}" class="form-control"
+						id="cantidad"></input> <label for="precio">PRECIO DE
+						ENTRADAS:</label> <input type="text" th:field="*{priceTicket}"
+						class="form-control" id="precio"></input> <label for="horaini">HORA
+						INICIO:</label> <input type="time" th:field="*{startTime}"
+						class="form-control" id="horaini"></input>
+
+					<div class="alert alert-danger"
+						th:if="${#fields.hasErrors('startTime')}" th:errors="*{startTime}">
+					</div>
+
+					<label for="horafin">HORA FIN:</label> <input type="time"
+						th:field="*{endsTime}" class="form-control" id="horafin"></input>
+
+					<div class="alert alert-danger"
+						th:if="${#fields.hasErrors('endsTime')}" th:errors="*{endsTime}">
+					</div>
+
+					<label for="descripcion">DESCRIPCION:</label> <input type="text"
+						th:field="*{descriptionEvent}" class="form-control"
+						id="descripcion"></input>
+
+					<div class="alert alert-danger"
+						th:if="${#fields.hasErrors('descriptionEvent')}"
+						th:errors="*{descriptionEvent}"></div>
+
+				</div>
+
+			</div>
+
+			<button type="submit" class="btn btn-primary">Aceptar</button>
+			<a href="/event/list" class="btn btn-danger">Cancelar</a>
+		</form>
+	</div>
+
+	<div th:replace="fragments/footer :: footer"></div>
+
+</body>
+
+</html>
