@@ -110,23 +110,24 @@ public class UserController {
 		return "listUser";
 	}	
 	
-	@RequestMapping("/buscar")	
-	public String buscar(Map<String, Object> model, @ModelAttribute User user ) throws ParseException {
-		List<User> listaUsuarios;
-		user.setNameUser(user.getNameUser());
-		listaUsuarios = uService.findByName(user.getNameUser());
-		
-		if (listaUsuarios.isEmpty()) {
-			model.put("mensaje", "No se encontró");
-		}
-		model.put("listaUsuarios", listaUsuarios);				
-		return "listUser";
-	}
-	
-	@RequestMapping("/irBuscar")
-	public String irBuscar(Model model) {
-		model.addAttribute("user", new User());
-		return "buscar";
-	}
+	@RequestMapping("/search")
+    public String buscar(Map<String, Object> model, @ModelAttribute User user)
+    throws ParseException {
+        List<User> listaUsuarios;
+        user.setNameUser(user.getNameUser());
+        listaUsuarios = uService.findByName(user.getNameUser());
+
+        if(listaUsuarios.isEmpty()) {
+            model.put("mensaje", "no se encontro");
+        }
+        model.put("listaUsuarios", listaUsuarios);
+        return "listUser";
+    }
+
+    @RequestMapping("/irSearch")
+    public String irBuscar(Model model) {
+        model.addAttribute("user", new User());
+        return "searchUser";
+    }
 	
 }
