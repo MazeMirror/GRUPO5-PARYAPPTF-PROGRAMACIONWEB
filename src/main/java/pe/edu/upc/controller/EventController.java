@@ -131,12 +131,12 @@ public class EventController {
 			model.put("mensaje", "no se encontro");
 		}
 		model.put("listaEventos", listaEventos);
-		return "search";
+		return "listEvent";
 	}
 	
 	@RequestMapping("/irSearch")
 	public String irBuscar(Model model) {
 		model.addAttribute("event", new Event());
-		return "search";
+		return "searchevent";
 	}
 }
