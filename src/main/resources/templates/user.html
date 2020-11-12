@@ -1,99 +1,125 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 
-	<head>
-		
-		<meta charset="ISO-8859-1"></meta>
-		
-		<title>Usuario</title>
-		
-		<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-		
-		<link 	href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css"
-				rel="stylesheet" id="bootstrap-css">
-		</link>
+<head>
 
-		<script
-			src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js">
+<meta charset="ISO-8859-1"></meta>
+
+<title>Usuario</title>
+
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
+<link
+	href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css"
+	rel="stylesheet" id="bootstrap-css">
+</link>
+
+<script
+	src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js">
 		</script>
-		
-		<script type="text/javascript" th:src="@{/js/user.js}"></script>
 
-	</head>
-	
-	<body>
-	
-		<div th:replace="fragments/header :: header"></div>
-		
-		<div class="container">
-			<form th:action="@{/user/registrar}" method="post" th:object="${user}">
+<script type="text/javascript" th:src="@{/js/user.js}"></script>
+
+</head>
+
+<body>
+
+	<div th:replace="fragments/header :: header"></div>
+
+	<div class="container">
+		<form th:action="@{/user/registrar}" method="post" th:object="${user}">
+			<div class="form-group">
+
+				<label for="iduser">ID:</label> <input type="text"
+					class="form-control" th:field="*{idUser}"></input>
+
 				<div class="form-group">
-					
-					<label for="iduser">ID:</label> 
-					<input type="text" class="form-control" th:field="*{idUser}"></input>
-					
-					<div class="form-group">
-					
-						<label 	for="nombre">NOMBRE:</label> 
-						<input type="text" th:field="*{nameUser}" class="form-control" id="nombre"></input>
-	
-						<div class="alert alert-danger" th:if="${#fields.hasErrors('nameUser')}" 
-							th:errors="*{nameUser}">
-						</div>
-						
-						<label 	for="apellido">APELLIDO:</label> 
-						<input type="text" th:field="*{lastnameUser}" class="form-control" id="apellido"></input>
-	
-						<div class="alert alert-danger" th:if="${#fields.hasErrors('lastnameUser')}" 
-							th:errors="*{lastnameUser}">
-						</div>
-						
-						<label 	for="correo">CORREO:</label> 
-						<input type="text" th:field="*{emailUser}" class="form-control" id="correo"></input>
-	
-						<div class="alert alert-danger" th:if="${#fields.hasErrors('emailUser')}" 
-							th:errors="*{emailUser}">
-						</div>
-						
-						<label 	for="ciudad">CIUDAD:</label> 
-						<input type="text" th:field="*{cityUser}" class="form-control" id="ciudad"></input>
-	
-						<div class="alert alert-danger" th:if="${#fields.hasErrors('cityUser')}" 
-							th:errors="*{cityUser}">
-						</div>
-						
-						<label 	for="dni">DNI:</label> 
-						<input type="text" th:field="*{dniUser}" class="form-control" id="dni"></input>
-	
-						<div class="alert alert-danger" th:if="${#fields.hasErrors('dniUser')}" 
-							th:errors="*{dniUser}">
-						</div>
-						
-					|	<label 	for="numero">NUMERO:</label> 
-						<input type="text" th:field="*{phoneUser}" class="form-control" id="numero"></input>
-	
-						<div class="alert alert-danger" th:if="${#fields.hasErrors('phoneUser')}" 
-							th:errors="*{phoneUser}">
-						</div>
-						
-						<label 	for="contrasena">CLAVE:</label> 
-						<input type="text" th:field="*{paswordUser}" class="form-control" id="contrasena"></input>
-	
-						<div class="alert alert-danger" th:if="${#fields.hasErrors('paswordUser')}" 
-							th:errors="*{paswordUser}">
-						</div>
-						
-					</div>
-					
-				</div>
-				
-				<button type="submit" class="btn btn-primary">Aceptar</button>
-				<a href="/user/listar" class="btn btn-danger">Cancelar</a>
-			</form>
-		</div>
-	
-		<div th:replace="fragments/footer :: footer"></div>
 
-	</body>
-	
+					<label for="nombre">NOMBRE:</label> <input type="text"
+						th:field="*{nameUser}" class="form-control" id="nombre"></input>
+
+					<div class="alert alert-danger"
+						th:if="${#fields.hasErrors('nameUser')}" th:errors="*{nameUser}">
+					</div>
+
+					<label for="apellido">APELLIDO:</label> <input type="text"
+						th:field="*{lastnameUser}" class="form-control" id="apellido"></input>
+
+					<div class="alert alert-danger"
+						th:if="${#fields.hasErrors('lastnameUser')}"
+						th:errors="*{lastnameUser}"></div>
+
+					<label for="correo">CORREO:</label> <input type="text"
+						th:field="*{emailUser}" class="form-control" id="correo"></input>
+
+					<div class="alert alert-danger"
+						th:if="${#fields.hasErrors('emailUser')}" th:errors="*{emailUser}">
+					</div>
+
+					<label for="ciudad">DEPARTAMENTO:</label> <select
+						class="form-control" th:field="*{cityUser}">
+						<option value="Amazonas">Amazonas</option>
+						<option value="Ancash">Ancash</option>
+						<option value="Apurimac">Apurimac</option>
+						<option value="Arequipa">Arequipa</option>
+						<option value="Ayacucho">Ayacucho</option>
+						<option value="Cajamarca">Cajamarca</option>
+						<option value="Callao">Callao</option>
+						<option value="Cuzco">Cuzco</option>
+						<option value="Huancavelica">Huancavelica</option>
+						<option value="Ica">Ica</option>
+						<option value="Junin">Junin</option>
+						<option value="La Libertad">La Libertad</option>
+						<option value="Lambayeque">Lambayeque</option>
+						<option value="Lima">Lima</option>
+						<option value="Loreto">Loreto</option>
+						<option value="Madre de Dios">Madre de Dios</option>
+						<option value="Moquegua">Moquegua</option>
+						<option value="Pasco">Pasco</option>
+						<option value="Piura">Piura</option>
+						<option value="Puno">Puno</option>
+						<option value="San Martin">San Martin</option>
+						<option value="Tacna">Tacna</option>
+						<option value="Tumbes">Tumbes</option>
+						<option value="Ucayali">Ucayali</option>
+					</select>
+
+					<div class="alert alert-danger"
+						th:if="${#fields.hasErrors('cityUser')}" th:errors="*{cityUser}">
+					</div>
+
+					<label for="dni">DNI:</label> <input type="text"
+						th:field="*{dniUser}" class="form-control" id="dni"></input>
+
+					<div class="alert alert-danger"
+						th:if="${#fields.hasErrors('dniUser')}" th:errors="*{dniUser}">
+					</div>
+
+					| <label for="numero">NUMERO:</label> <input type="text"
+						th:field="*{phoneUser}" class="form-control" id="numero"></input>
+
+					<div class="alert alert-danger"
+						th:if="${#fields.hasErrors('phoneUser')}" th:errors="*{phoneUser}">
+					</div>
+
+					<label for="contrasena">CLAVE:</label> <input type="text"
+						th:field="*{paswordUser}" class="form-control" id="contrasena"></input>
+
+					<div class="alert alert-danger"
+						th:if="${#fields.hasErrors('paswordUser')}"
+						th:errors="*{paswordUser}"></div>
+
+				</div>
+
+			</div>
+
+			<button type="submit" class="btn btn-primary">Aceptar</button>
+			<a href="/user/listar" class="btn btn-danger">Cancelar</a>
+		</form>
+	</div>
+
+	<div th:replace="fragments/footer :: footer"></div>
+
+</body>
+
 </html>

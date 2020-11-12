@@ -20,8 +20,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import pe.edu.upc.model.Bank;
 import pe.edu.upc.model.Card;
 import pe.edu.upc.model.User;
+import pe.edu.upc.service.IBankService;
 import pe.edu.upc.service.ICardService;
 import pe.edu.upc.service.IUserService;
 
@@ -35,6 +37,9 @@ private  ICardService caService;
 
 @Autowired
 private IUserService uService;
+
+@Autowired
+private IBankService bService;
 
 @RequestMapping("/welcome")
 public String irWelcome() {
@@ -96,6 +101,7 @@ throws ParseException
 	}
 	else {
 		model.addAttribute("listaUsuarios", uService.list());
+		model.addAttribute("listaBancos", bService.list());
 		if(objCard.isPresent())
 			objCard.ifPresent(o -> model.addAttribute("card", o));
 		return "card";
@@ -107,7 +113,9 @@ throws ParseException
 
 @RequestMapping("/irRegister")
 public String irRegistrar(Model model) {
+	model.addAttribute("listaBancos", bService.list());
 	model.addAttribute("listaUsuarios", uService.list());
+	model.addAttribute("bank", new Bank());
 	model.addAttribute("user", new User());
 	model.addAttribute("card", new Card());
 	return "card";
@@ -118,6 +126,7 @@ public String registrar(@ModelAttribute @Valid Card objCard, BindingResult binRe
 throws ParseException
 {
 	if (binRes.hasErrors()) {
+		model.addAttribute("listaBancos", bService.list());
 		model.addAttribute("listaUsuarios", uService.list());
 		return "card";
 	}

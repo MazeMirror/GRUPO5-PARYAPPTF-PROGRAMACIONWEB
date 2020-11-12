@@ -32,6 +32,10 @@ import org.springframework.format.annotation.DateTimeFormat;
 		@JoinColumn(name="idUser", nullable = false)
 		private User user;
 		
+		@ManyToOne
+		@JoinColumn(name="idBank", nullable = false)
+		private Bank bank;
+		
 		@NotEmpty(message="Debe ingresar un titular")
 		@NotBlank(message="Debe ingresar un titular")
 		@Column(name="nombreCards", length=60, nullable=false)
@@ -60,14 +64,21 @@ import org.springframework.format.annotation.DateTimeFormat;
 		public void setIdCard(int idCard) {
 			this.idCard = idCard;
 		}
-		
-		
+
 		public User getUser() {
 			return user;
 		}
 
 		public void setUser(User user) {
 			this.user = user;
+		}
+
+		public Bank getBank() {
+			return bank;
+		}
+
+		public void setBank(Bank bank) {
+			this.bank = bank;
 		}
 
 		public String getNameCard() {
@@ -101,8 +112,6 @@ import org.springframework.format.annotation.DateTimeFormat;
 		public void setCvv(String cvv) {
 			this.cvv = cvv;
 		}
+
 		
-	
-	
-	
 }

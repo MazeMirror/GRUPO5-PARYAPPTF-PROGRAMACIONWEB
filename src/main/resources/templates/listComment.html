@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8"></meta>
-<title>Tarjetas</title>
+<title>Comentarios</title>
 <script type="text/javascript"
 	src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.16.0/jquery.validate.js"></script>
 <link
@@ -19,46 +19,37 @@
 		<form id="myform">
 			<div class="row clearfix">
 				<div class="col-md-12 column">
-					<a style="border-bottom-color: green" th:href="@{/card/irRegister}"
+					<a style="border-bottom-color: green" th:href="@{/comment/irRegister}"
 						id="add-row" type="button"
 						class="btn btn-primary btn-md left-block"> <span
-						class="glyphicon glyphicon-plus"></span> Tarjeta
+						class="glyphicon glyphicon-plus"></span> Comentario
 					</a>
-					
 					
 					<table class="table table-bordered table-hover table-striped"
 						id="tab_logic">
 						<thead>
 							<tr>
-								<th class="text-center">ID</th>
+								<th class="text-center">CODIGO</th>
 								<th class="text-center">USUARIO</th>
-								<th class="text-center">BANCO</th>
-								<th class="text-center">TITULAR</th>
-								<th class="text-center">NUMERO DE TARJETA</th>
-								<th class="text-center">FECHA DE VENCIMIENTO</th>
-								<th class="text-center">CVV</th>
+								<th class="text-center">EVENTO</th>
+								<th class="text-center">TIPO DE COMENTARIO</th>
+								<th class="text-center">DESCRIPCION</th>
 								<th class="text-center">OPERACIÓN</th>
 								<th class="text-center">OPERACIÓN</th>
+								
 
 							</tr>
 						</thead>
 						<tbody>
-							<tr th:each="c: ${listaTarjetas}">
+							<tr th:each="c: ${listaComentarios}">
 							<!-- th:text muestra una linea de texto -->
-								<td th:text="${c.idCard}"></td>
+								<td th:text="${c.idComment}"></td>
 								<td th:text="${c.user.nameUser} + ' ' + ${c.user.lastnameUser}"></td>
-								<td th:text="${c.bank.nameBank}"></td>
-								<td th:text="${c.nameCard}"></td>
-								<td th:text="${c.numerotarjeta}"></td>
-								<td th:text="${#dates.format(c.fechadevencimiento,'dd/MM/yyyy')}"></td>
-								<td th:text="${c.cvv}"></td>
-								
-								
-								<!-- th:href Redirecciona -->
-								<td><a th:href="@{/card/delete?id=}+${c.idCard}">Eliminar</a></td>
-								<td><a th:href="@{'/card/modificar/' + ${c.idCard}}">Modificar</a></td>
-
-
+								<td th:text="${c.event.nameEvent}"></td>
+								<td th:text="${c.typecomment}"></td>
+								<td th:text="${c.textcomment}"></td>
+								<td><a th:href="@{/comment/delete?id=}+${c.idComment}">Eliminar</a></td>
+								<td><a th:href="@{'/comment/update/' + ${c.idComment}}">Modificar</a></td>
 							</tr>
 						</tbody>
 

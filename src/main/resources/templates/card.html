@@ -44,7 +44,21 @@
 							th:text="${u.nameUser} + ' ' + ${u.lastnameUser}"
 							th:selected="(${u.idUser} == *{user.idUser})"></option>
 
-					</select> <label for="titular">Titular:</label> <input type="text"
+					</select> 
+					
+					<label for="banco" class=" col-sm-2 col-form-label">Banco:
+					</label> <select class="form-control" th:field="*{bank.idBank}">
+						<!-- th:each Itera los elementos de un arreglo -->
+						<!-- sintaxis th:each="Variable: ${Lista}" -->
+						<!-- th:value Establece el value de la seleccion -->
+						<!-- sintaxis th:value="${Variable.Atributo}" -->
+						<option th:each="b: ${listaBancos}" th:value="${b.idBank}"
+							th:text="${b.nameBank}"
+							th:selected="(${b.idBank} == *{bank.idBank})"></option>
+
+					</select>
+					
+					<label for="titular">Titular:</label> <input type="text"
 						th:field="*{nameCard}" class="form-control" id="titular"></input>
 					<!-- th:if Para establecer condiciones, las variables solo son booleanas -->
 					<!-- #{} Expresion de mensaje -->
@@ -88,3 +102,4 @@
 
 </body>
 </html>
+
