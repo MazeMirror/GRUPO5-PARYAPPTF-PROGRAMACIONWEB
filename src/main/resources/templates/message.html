@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+	<head>
+		<meta charset="utf-8">
+		
+		<meta charset="ISO-8859-1"></meta>
+		
+		<title>Mensaje</title>
+		
+		<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+		
+		<link 	href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css"
+				rel="stylesheet" id="bootstrap-css">
+		</link>
+
+		<script
+			src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js">
+		</script>
+		
+		<script type="text/javascript" th:src="@{/js/message.js}"></script>
+
+	</head>
+	
+	<body>
+	
+		<div th:replace="fragments/header :: header"></div>
+		
+		<div class="container">
+			<form th:action="@{/message/registrar}" method="post" th:object="${message}">
+				<div class="form-group">
+					
+					<label for="idMessage">ID:</label> 
+					<input type="text" class="form-control" th:field="*{idMessage}"></input>
+					
+					<label for="fecha">FECHA:</label> <input
+						type="date" th:field="*{fecha}" class="form-control"
+						id="fecha"></input>
+					<div class="alert alert-danger"
+						th:if="${#fields.hasErrors('fecha')}"
+						th:errors="*{fecha}"></div>
+						
+					
+					<div class="form-group">
+					
+						<label 	for="remitente">DE:</label> 
+						<input type="text" th:field="*{nameRemitent}" class="form-control" id="remitente"></input>
+	
+						<div class="alert alert-danger" th:if="${#fields.hasErrors('nameRemitent')}" 
+							th:errors="*{nameRemitent}">
+						</div>
+					
+					<label for="destinatario" class=" col-sm-2 col-form-label">PARA:
+					</label> <select class="form-control" th:field="*{user.idUser}">
+						<option th:each="u: ${listaUsuarios}" th:value="${u.idUser}"
+							th:text="${u.nameUser} + ' ' + ${u.lastnameUser}"
+							th:selected="(${u.idUser} == *{user.idUser})"></option>
+							
+					</select> 
+					
+						</div>
+						
+						<label 	for="asunto">ASUNTO:</label> 
+						<input type="text" th:field="*{subject}" class="form-control" id="asunto"></input>
+	
+						<div class="alert alert-danger" th:if="${#fields.hasErrors('subject')}" 
+							th:errors="*{subject}">
+						</div>
+						
+						<label 	for="mensaje">MENSAJE:</label> 
+						<input type="text" th:field="*{message}" class="form-control" id="mensaje"></input>
+	
+						<div class="alert alert-danger" th:if="${#fields.hasErrors('message')}" 
+							th:errors="*{message}">
+						<</div>
+						
+					</div>
+					
+				</div>
+				
+				<button type="submit" class="btn btn-primary">Aceptar</button>
+				<a href="/message/listar" class="btn btn-danger">Cancelar</a>
+			</form>
+		</div>
+	
+		<div th:replace="fragments/footer :: footer"></div>
+
+	</body>
+	
+</html>
+
