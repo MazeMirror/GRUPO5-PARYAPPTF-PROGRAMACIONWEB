@@ -16,7 +16,7 @@ import javax.persistence.TemporalType;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
-
+import javax.validation.constraints.Positive;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -35,6 +35,10 @@ public class Event implements Serializable {
 	private String nameEvent;
 	
 	@ManyToOne
+	@JoinColumn(name="idCategory", nullable = false)
+	private Category category;
+	
+	@ManyToOne
 	@JoinColumn(name="idUser", nullable = false)
 	private User user;
 	
@@ -44,17 +48,23 @@ public class Event implements Serializable {
 	@DateTimeFormat(pattern= "yyyy-MM-dd")
 	private Date dateEvent;
 	
+	@Positive(message = "Debe ingresar un numero positivo")
 	@Column(name="numberTickets", length=5, nullable = false )
 	private int numberTickets;
 	
+	@Positive(message = "Debe ingresar un numero positivo")
 	@Column(name="priceTicket", length=3, nullable = false )
 	private int priceTicket;
 	
 	@NotNull
+	@NotEmpty(message="No puede estar vacio")
+	@NotBlank(message="No puede estar en blanco")
 	@Column(name = "startTime")
 	private String startTime;
 	
 	@NotNull
+	@NotEmpty(message="No puede estar vacio")
+	@NotBlank(message="No puede estar en blanco")
 	@Column(name = "endsTime")
 	private String endsTime;
 	
@@ -134,6 +144,16 @@ public class Event implements Serializable {
 	public void setUser(User user) {
 		this.user = user;
 	}
+
+	public Category getCategory() {
+		return category;
+	}
+
+	public void setCategory(Category category) {
+		this.category = category;
+	}
 	
+	
+
 	
 }

@@ -8,8 +8,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name="Usuario")
@@ -37,11 +39,15 @@ public class User implements Serializable {
 	
 	@NotEmpty(message="No puede estar vacio")
 	@NotBlank(message="No puede estar en blanco")
+	@Digits(integer = 8, fraction = 0)
+	@Size(min = 8, max = 8, message = "Debe contener 8 digitos")
 	@Column(name="dniUsuario", nullable = false, length=8)
 	private String dniUser;
 	
 	@NotEmpty(message="No puede estar vacio")
 	@NotBlank(message="No puede estar en blanco")
+	@Digits(integer = 9, fraction = 0)
+	@Size(min = 9, max = 9, message = "Debe contener 9 digitos")
 	@Column(name="numeroUsuario", nullable = false, length=9)
 	private String phoneUser;
 	

@@ -54,6 +54,7 @@
 								<th class="text-center">CODIGO</th>
 								<th class="text-center">ORGANIZADOR</th>
 								<th class="text-center">EVENTO</th>
+								<th class="text-center">CATEGORIA</th>
 								<th class="text-center">FECHA</th>
 								<th class="text-center">ENTRADAS</th>
 								<th class="text-center">PRECIO</th>
@@ -69,6 +70,7 @@
 								<td th:text="${eve.idEvent}"></td>
 								<td th:text="${eve.user.nameUser} + ' ' + ${eve.user.lastnameUser}"></td>
 								<td th:text="${eve.nameEvent}"></td>
+								<td th:text="${eve.category.nameCategory}"></td>
 								<td th:text="${#dates.format(eve.dateEvent,'dd/MM/yyyy')}"></td>
 								<td th:text="${eve.numberTickets}"></td>
 								<td th:text="${eve.priceTicket}"></td>

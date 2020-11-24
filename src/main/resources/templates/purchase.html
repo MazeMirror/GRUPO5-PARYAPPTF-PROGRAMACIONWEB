@@ -63,6 +63,10 @@
 						th:field="*{numberTickets}" class="form-control" id="entradas"></input>
 						<!-- th:if Para establecer condiciones, las variables solo son booleanas -->
 						<!-- #{} Expresion de mensaje -->
+						
+					<div class="alert alert-danger"
+						th:if="${#fields.hasErrors('numberTickets')}" th:errors="*{numberTickets}">
+					</div>
 				
 				</div>
 
@@ -77,3 +81,4 @@
 
 </body>
 </html>
+
