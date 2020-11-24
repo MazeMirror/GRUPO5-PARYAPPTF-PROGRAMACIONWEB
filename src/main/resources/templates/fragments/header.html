@@ -41,6 +41,15 @@
 					</ul>
 
 				</div>
+				
+				<div class="modal-footer">
+					<form id="logoutForm" th:action="@{/logout}" method="post">
+						<button class="btn btn-danger"
+							onclick="document.getElementById('logoutForm').submit();"
+							type="submit">Cerrar sesion</button>
+						
+					</form>
+				</div>
 
 			</div>
 		</nav>

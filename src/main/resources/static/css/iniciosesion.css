@@ -84,7 +84,7 @@ body{
 
 }
 .contenedor{
-    background: url("../img/fondo2.jpg");
+    background:url("../imagenes/fondo2.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     width: 100%;

@@ -14,9 +14,9 @@ public class LandingController {
 		return "landing/index";
 	}
 	
-	@RequestMapping("/registro")
+	@RequestMapping("/login")
 	public String irRegistro() {
-		return "landing/registro";
+		return "login";
 	}
 	
 	@RequestMapping("/cliente")
