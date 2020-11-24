@@ -1,5 +1,6 @@
 package pe.edu.upc.serviceimpl;
 
+import java.util.Calendar;
 import java.util.List;
 import java.util.Optional;
 
@@ -21,7 +22,11 @@ public class EventServiceImpl implements IEventService{
 	@Override
 	@Transactional
 	public boolean insert(Event event) {
-		Event objEvent= dEvent.save(event);
+		Event objEvent= null;
+		Calendar cal = Calendar.getInstance();
+		if(event.getDateEvent().after(cal.getTime())) {
+			objEvent = dEvent.save(event);
+		}
 		if(objEvent == null)
 			return false;
 		else
@@ -66,3 +71,4 @@ public class EventServiceImpl implements IEventService{
 	}
 
 }
+

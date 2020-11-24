@@ -35,7 +35,7 @@
 					class="form-control" th:field="*{idEvent}"></input>
 
 				<div class="form-group">
-					
+
 					<label for="evento" class=" col-sm-2 col-form-label">Organizador:
 					</label> <select class="form-control" th:field="*{user.idUser}">
 						<!-- th:each Itera los elementos de un arreglo -->
@@ -45,17 +45,25 @@
 						<option th:each="u: ${listaUsuarios}" th:value="${u.idUser}"
 							th:text="${u.nameUser} + ' ' + ${u.lastnameUser}"
 							th:selected="(${u.idUser} == *{user.idUser})"></option>
-							
-					</select> 
-					
-					<label for="nombre">NOMBRE:</label> <input type="text"
+
+					</select> <label for="nombre">NOMBRE:</label> <input type="text"
 						th:field="*{nameEvent}" class="form-control" id="nombre"></input>
 
 					<div class="alert alert-danger"
 						th:if="${#fields.hasErrors('nameEvent')}" th:errors="*{nameEvent}">
 					</div>
 
-					<label for="fecha">FECHA:</label> <input type="date"
+					<label for="categoria" class=" col-sm-2 col-form-label">Categoria:
+					</label> <select class="form-control" th:field="*{category.idCategory}">
+						<!-- th:each Itera los elementos de un arreglo -->
+						<!-- sintaxis th:each="Variable: ${Lista}" -->
+						<!-- th:value Establece el value de la seleccion -->
+						<!-- sintaxis th:value="${Variable.Atributo}" -->
+						<option th:each="c: ${listaCategorias}" th:value="${c.idCategory}"
+							th:text="${c.nameCategory}"
+							th:selected="(${c.idCategory} == *{category.idCategory})"></option>
+
+					</select> <label for="fecha">FECHA:</label> <input type="date"
 						th:field="*{dateEvent}" class="form-control" id="fecha"></input>
 
 					<div class="alert alert-danger"
@@ -64,9 +72,21 @@
 
 					<label for="nombre">CANTIDAD DE ENTRADAS:</label> <input
 						type="text" th:field="*{numberTickets}" class="form-control"
-						id="cantidad"></input> <label for="precio">PRECIO DE
+						id="cantidad"></input> 
+						
+						<div class="alert alert-danger"
+						th:if="${#fields.hasErrors('numberTickets')}" th:errors="*{numberTickets}">
+					</div>
+					
+						<label for="precio">PRECIO DE
 						ENTRADAS:</label> <input type="text" th:field="*{priceTicket}"
-						class="form-control" id="precio"></input> <label for="horaini">HORA
+						class="form-control" id="precio"></input> 
+						
+						<div class="alert alert-danger"
+						th:if="${#fields.hasErrors('priceTicket')}" th:errors="*{priceTicket}">
+					</div>
+					
+						<label for="horaini">HORA
 						INICIO:</label> <input type="time" th:field="*{startTime}"
 						class="form-control" id="horaini"></input>
 

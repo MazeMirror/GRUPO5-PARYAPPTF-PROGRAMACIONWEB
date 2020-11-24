@@ -17,8 +17,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import pe.edu.upc.model.Category;
 import pe.edu.upc.model.Event;
 import pe.edu.upc.model.User;
+import pe.edu.upc.service.ICategoryService;
 import pe.edu.upc.service.IEventService;
 import pe.edu.upc.service.IUserService;
 
@@ -31,6 +33,9 @@ public class EventController {
 	
 	@Autowired
 	private IUserService uService;
+	
+	@Autowired
+	private ICategoryService cService;
 	
 	@RequestMapping("/welcome")
 	public String irEventBienvenido() {
@@ -46,7 +51,9 @@ public class EventController {
 	@RequestMapping("/irRegister")
 	public String irRegistrar(Model model) {
 		model.addAttribute("listaUsuarios", uService.list());
+		model.addAttribute("listaCategorias", cService.list());
 		model.addAttribute("user", new User());
+		model.addAttribute("category", new Category());
 		model.addAttribute("event", new Event());
 		return "event";
 	}
@@ -57,6 +64,7 @@ public class EventController {
 	{
 		if (binRes.hasErrors()) {
 			model.addAttribute("listaUsuarios", uService.list());
+			model.addAttribute("listaCategorias", cService.list());
 			return "event";
 		}
 		else {
@@ -83,6 +91,7 @@ public class EventController {
 		}
 		else {
 			model.addAttribute("listaUsuarios", uService.list());
+			model.addAttribute("listaCategorias", cService.list());
 			if(objEvent.isPresent())
 				objEvent.ifPresent(o -> model.addAttribute("event", o));
 			return "event";

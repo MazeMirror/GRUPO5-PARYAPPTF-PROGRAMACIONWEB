@@ -10,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.Positive;
 
 @Entity
 @Table(name="Purchase")
@@ -28,6 +29,7 @@ public class Purchase implements Serializable {
 	@JoinColumn(name="idUser", nullable = false)
 	private User user;
 	
+	@Positive(message = "Debe ingresar un numero positivo")
 	@Column(name="numberTickets", length=5, nullable = false )
 	private int numberTickets;
 	

@@ -13,9 +13,12 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.Digits;
+import javax.validation.constraints.Future;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -42,6 +45,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 		private String nameCard;
 		
 		@NotNull
+		@Future(message = "Debe ser una fecha futura")
 		@Temporal(TemporalType.DATE)
 		@Column(name="fechavencimiento")
 		@DateTimeFormat(pattern = "yyyy-MM-dd")			
@@ -49,11 +53,15 @@ import org.springframework.format.annotation.DateTimeFormat;
 		
 		@NotEmpty(message="Debe ingresar un numero de tarjeta")
 		@NotBlank(message="Debe ingresar un numero de tarjeta")
+		@Digits(integer = 16, fraction = 0)
+		@Size(min = 16, max = 16, message = "Debe contener 16 digitos")
 		@Column(name="numerotarjeta", length=16, nullable=false)
         private String numerotarjeta;
     
 		@NotEmpty(message="Debe ingresar un numero de cvv")
 		@NotBlank(message="Debe ingresar un numero de cvv")
+		@Digits(integer = 3, fraction = 0)
+		@Size(min = 3, max = 3, message = "Debe contener 3 digitos")
 		@Column(name="cvv", length=3, nullable=false)
         private String cvv;
 
@@ -115,3 +123,4 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 		
 }
+
