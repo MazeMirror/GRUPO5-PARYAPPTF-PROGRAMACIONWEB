@@ -1,0 +1,172 @@
+body{
+    background: #000000;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+h5{
+    margin-left: 15%;
+    font-size: 2rem;
+    margin-bottom: 3.5%;
+}
+
+.ventana {
+    background: #FFFFFF;
+    border: 15px #231934 solid;
+    width: 50%;
+    color: black;
+    font-family: Tahoma;
+    text-align: center;
+    min-height: 250px;
+    position: fixed;
+    padding-bottom: 5%;
+    left: 25%;
+    top: 20%;
+    display: none;
+}
+
+.ventana h3{
+    font-family: "Segoe UI Black";
+    font-size: 1.8rem;
+    margin-top: 33px;
+    margin-left: 33px;
+    margin-right: 33px;
+    margin-bottom: 10%;
+}
+.ventana p{
+    font-family: "segoe ui";
+    font-size: 1.3rem;
+    text-align: center;
+    width: 100%;
+}
+
+.ventana p:nth-child(4){
+    margin-bottom: 7%;
+}
+
+.contenedor2 footer{
+    float:  left;
+}
+.cerrar{
+    position: fixed;
+    margin-left: 22.8%;
+    margin-top: 0.5%;
+}
+
+
+
+.ventana img{
+    width: 2%;
+}
+
+
+.duda{
+    background: transparent;
+}
+
+.logo1{
+    padding-left: 18px;
+    width: 15%;
+}
+
+#tittle{
+    display: block;
+    padding-left: 34%;
+    padding-bottom: 3%;
+
+
+}
+.contenedor{
+    background: url("../imagenes/fondo2.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    position: relative;
+
+}
+
+.contenedor:before{
+    content: "";
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    position: absolute;
+    opacity: 0.55;
+}
+
+.contenedor section, h5{
+    position: relative;
+    color: #D4D4D4;
+}
+
+.contenedor2{
+    position: relative;
+    background: transparent;
+    padding-top: 5%;
+    padding-bottom: 5%;
+}
+
+.form-duda{
+
+    width: 70%;
+    background: #D5D5D5;
+    padding: 30px;
+    margin-top: 0;
+    margin-bottom: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 0;
+    opacity: 0.85;
+}
+
+
+.controls{
+    width: 98%;
+    background: #FFFFFF;
+    padding: 10px;
+    border-radius: 0;
+    margin-bottom: 16px;
+    border: 1px solid;
+    font-size: 1rem;
+}
+
+.form-duda .botons{
+    width: 100%;
+    background: #231934;
+    border: none;
+    margin-top: 30px;
+    padding: 12px;
+    color: #CAB5B5;
+    font-size: 1.3rem;
+}
+
+.form-duda .botons:hover{
+    background: #7C4791;
+}
+
+footer{
+    padding-left: 3%;
+    padding-right: 2%;
+    padding-top: 3%;
+}
+footer img
+{
+    float:right;
+    width: 5%;
+}
+
+@media screen and (max-width: 1300px)
+{
+    .grid-wrapper {
+        display: flex;
+    }
+    #title img {
+        width: 35%;
+    }
+    h4{
+        font-size: 1rem;
+    }
+}

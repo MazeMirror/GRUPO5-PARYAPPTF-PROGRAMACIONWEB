@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+     <link href="../../static/css/contacto.css" th:href="@{/css/contacto.css}" rel="stylesheet" />
+    <title>CONTÁCTANOS</title>
+</head>
+
+<body>
+
+<!--LOGOS-->
+
+<nav>
+    <a th:href="@{/landing/index}"><img th:src="@{/imagenes/logo2.png}" class="logo1" alt="pary app"></a>
+    <div id="tittle">
+        <a th:href="@{/landing/index}"><img th:src="@{/imagenes/logo3.png}" alt="pary app"></a>
+    </div>
+</nav>
+<!--FIN DE LOS LOGOS-->
+
+
+<div class="contenedor">  <!--CONTENEDOR DE LA IMAGEN DE FONDO-->
+
+    <div class="contenedor2">
+        <h5 class="duda">¿Tienes dudas o problemas con la aplicación? ¡Contáctanos!</h5>
+
+
+        <!--FORMULARIO-->
+
+        <section class="form-duda">
+            <input class="controls" type="email" name="correo" id="correo" placeholder="Email">
+            <input class="controls" type="text" name="nombres" id="nombres" placeholder="Nombres">
+            <input class="controls" type="text" name="apellidos" id="apellidos" placeholder="Apellidos">
+            <input class="controls" type="text" name="duda" id="duda" placeholder="Cuéntanos acerca de tu duda o sobre el problema que tienes." >
+            <a href="javascript:abrir()"> <input class="botons" type="submit" value="Enviar pregunta"></a>
+
+            <!--FIN DE LA VENTANA EMERGENTE-->
+
+        </section>
+
+        <!--VENTANA EMERGENTE AL PRESIONAR EL BTN ENVIAR PREGUNTA-->
+
+        <div class="ventana" id="vent">
+            <a href="javascript:cerrar()"> <img class="cerrar" th:src="@{/imagenes/cerrar.png}" title="Cerrar" alt="cerrar ventana"> </a>
+            <h3>Gracias por contactarte con nosotros</h3>
+            <p>Nuestro equipo revisará tu duda y te enviará una repuesta al correo que asignaste. Esto se dará en un plazo no mayor a 24 horas.</p>
+            <p>¡Gracias por confiar en nosotros!</p>
+            <footer>
+                <p>New Wave Corportation Team</p>
+            </footer>
+
+            <!--  <h3>¡Felicidades, ya formas parte de la comunidad!</h3>
+             <p>Ahora, es momento que disfrutes de la experiencia completa.</p>
+             <p>Descarga nuestra aplicación en la App Store o en Play Store.</p>
+                <img class="ios" src="img/ios.jpg" title="descargar en App Store" alt="descargar en app store">
+                 <img class="android" src="img/android.png" title="Descargar en Play Store" alt="descargar en play store">-->
+
+        </div>
+
+        <!--FIN DEL FORMULARIO-->
+
+    </div>
+</div>
+
+<!--REDES SOCIALES-->
+
+<footer>
+    <a href="https://www.facebook.com/ParyApp-106549971120521/?modal=admin_todo_tour" title="Ir a nuestra página de Facebook">
+        <img th:src="@{/imagenes/facebook.png}" alt="Ir a nuestra página de facebook">
+    </a>
+
+    <a href="https://www.instagram.com/paryapp1/" title="Ir a nuestra página de Instagram">
+        <img th:src="@{/imagenes/instagram.png}" alt="Ir a nuestra página de instagram">
+    </a>
+</footer>
+
+<!--FIN DE REDES SOCIALES-->
+
+<script src="js/contacto.js"></script>
+</body>
+</html>

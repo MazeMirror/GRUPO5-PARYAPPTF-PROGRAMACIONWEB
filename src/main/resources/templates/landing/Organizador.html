@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+     <link href="../../static/css/usuarios.css" th:href="@{/css/usuarios.css}" rel="stylesheet" />
+    <title>Organizador</title>
+</head>
+<body class="ajuste">
+<div class="negro">
+    <nav>
+        <a th:href="@{/landing/index}">
+            <img th:src="@{/imagenes/logo2.png}" class="logo1" alt="LogoParyapp1">
+        </a>
+        <div id="title">
+            <a th:href="@{/landing/index}">
+                <img th:src="@{/imagenes/logo3.png}"  alt="LogoParyapp2">
+            </a>
+        </div>
+    </nav>
+
+    <h1 class="titulos ">¿Por qué ser parte de PARYAPP?</h1>
+</div>
+<div class="fondo ">
+    <div class="grid-wrapper" >
+        <div class="card " style="width: 18rem;">
+            <div class="card-body titulos">
+                <h5 class="card-title">Crea experiencias</h5>
+                <p class="card-text">Da a conocer nuestras propuestas de diversión y haz que los clientes tengan un momento único.</p>
+            </div>
+            <img th:src="@{/imagenes/organizador1.jpg}" class="card-img-top borde organizador " alt="Imagen referente a organizador">
+        </div>
+
+        <div class="card" style="width: 18rem;">
+            <div class="card-body titulos">
+                <h5 class="card-title">Asegura tus ganancias</h5>
+                <p class="card-text">Vende con la total seguridad que obtendrás todo tu dinero correspondiente de las entradas vendidas</p>
+            </div>
+            <img th:src="@{/imagenes/organizador2.jpg}" class="card-img-top borde organizador  " alt="Imagen referente a organizador">
+        </div>
+
+        <div class="card" style="width: 18rem;">
+            <div class="card-body titulos">
+                <h5 class="card-title">Activa y cancela tu suscripción cuando quieras</h5>
+                <p class="card-text">Cobramos un 9% por entrada vendida. Una gran oferta que no puedes dejar pasar</p>
+            </div>
+            <img th:src="@{/imagenes/organizador3.jpg}" class="card-img-top borde organizador  " alt="cliente3">
+        </div>
+    </div>
+
+</div>
+<h2 class=" negro titulos">¿Qué esperas para unirte?</h2>
+<div class="padleft">
+    <a th:href="@{/landing/registro}">
+        <button >
+            <h4>Se parte de la experiencia </h4>
+            <h4>Regístrate</h4>
+        </button>
+    </a>
+</div>
+<footer>
+    <a th:href="@{/landing/contacto}">
+        <button class="ancho"><h4>Contáctanos</h4></button>
+    </a>
+    <a href="https://www.facebook.com/ParyApp-106549971120521/?modal=admin_todo_tour" title="Ir a nuestra página de Facebook">
+        <img th:src="@{/imagenes/facebook.png}" alt="Ir a nuestra página de Facebook">
+    </a>
+    <a href="https://www.instagram.com/paryapp1/" title="Ir a nuestra cuenta de Instagram">
+        <img th:src="@{/imagenes/instagram.png}" alt="Ir a nuestra cuenta de Instagram">
+    </a>
+</footer>
+</body>
+</html>

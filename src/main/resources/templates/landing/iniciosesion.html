@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/iniciosesion.css">
+    <title>Iniciar Sesión</title>
+</head>
+<body>
+
+<!--LOGOS-->
+
+<nav>
+    <a href="index.html"><img src="img/logo1.png" class="logo1" alt="pary app"></a>
+    <div id="tittle">
+        <a href="index.html"><img src="img/logo.png" alt="pary app"></a>
+    </div>
+</nav>
+<!--FIN DE LOS LOGOS-->
+
+
+<div class="contenedor">  <!--CONTENEDOR DE LA IMAGEN DE FONDO-->
+
+    <div class="contenedor2">
+
+        <!--FORMULARIO-->
+
+        <section class="form-duda">
+            <h5 class="duda">Iniciar Sesión</h5>
+            <input class="controls" type="email" name="email" id="email" placeholder="Dirección de correo electrónico">
+            <input class="controls" type="password" name="password" id="password" placeholder="Contraseña">
+            <div class="recu-link"><a href="recuperacioncontraseña.html" class="recuperar"> ¿Se te ha olvidado la contraseña? </a></div>             <!--LINK DE RECUPERACIÓN-->
+            <h5 class="duda">¿Aún no tienes una cuenta?</h5>
+            <!-- <a href="javascript:abrir()"> <input class="botons" type="submit" value="Se parte de la experiencia Regístrate"></a> -->
+            <a href="registro.html"> <button class="botons" > <h4>Se parte de la experiencia</h4> <h4>Regístrate</h4> </button></a>   <!--LINK DE RECUPERACIÓN-->
+
+
+            <!--FIN DE LA VENTANA EMERGENTE-->
+
+        </section>
+
+        <!--VENTANA EMERGENTE AL PRESIONAR EL BTN ENVIAR PREGUNTA-->
+
+        <div class="ventana" id="vent">
+            <a href="javascript:cerrar()"> <img class="cerrar" src="img/cerrar.png" title="Cerrar" alt="cerrar ventana"> </a>
+            <h3>¡Tu solicitud se ha enviado con éxito!</h3>
+            <p>Revisa tu correo electrónico y da click en el enlace que te hemos mandado. Sigue los pasos y vuelve a tener el control de tu cuenta.</p>
+            <p>¡Gracias por confiar en nosotros!</p>
+            <footer>
+                <p>New Wave Corportation Team </p>
+            </footer>
+
+            <!--  <h3>¡Felicidades, ya formas parte de la comunidad!</h3>
+             <p>Ahora, es momento que disfrutes de la experiencia completa.</p>
+             <p>Descarga nuestra aplicación en la App Store o en Play Store.</p>
+                <img class="ios" src="img/ios.jpg" title="descargar en App Store" alt="descargar en app store">
+                 <img class="android" src="img/android.png" title="Descargar en Play Store" alt="descargar en play store">-->
+
+        </div>
+
+        <!--FIN DEL FORMULARIO-->
+
+    </div>
+</div>
+
+<!--REDES SOCIALES-->
+
+<footer>
+    <a href="contacto.html"> <button class="btn" > <h4>Contáctanos </h4></button></a>
+
+    <a href="https://www.facebook.com/ParyApp-106549971120521/?modal=admin_todo_tour" title="Ir a nuestra página de Facebook">
+        <img src="img/facebook.png" alt="Ir a nuestra página de facebook">
+    </a>
+
+    <a href="https://www.instagram.com/paryapp1/" title="Ir a nuestra página de Instagram">
+        <img src="img/instagram.png" alt="Ir a nuestra página de instagram">
+    </a>
+</footer>
+
+<!--FIN DE REDES SOCIALES-->
+
+<script src="js/contacto.js"></script>
+</body>
+</html>
